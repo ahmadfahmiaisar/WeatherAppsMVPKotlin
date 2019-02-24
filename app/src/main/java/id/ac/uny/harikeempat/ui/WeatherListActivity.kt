@@ -2,6 +2,7 @@ package id.ac.uny.harikeempat.ui
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
 import android.view.View.GONE
@@ -30,8 +31,10 @@ class WeatherListActivity : AppCompatActivity(), WeatherListView, WeatherListene
 
         //set RecycleView
         rvWeatherList.apply {
-            adapter = weatherAdapter
             layoutManager = LinearLayoutManager(this@WeatherListActivity)
+            adapter = weatherAdapter
+            addItemDecoration(DividerItemDecoration(this@WeatherListActivity, LinearLayoutManager.VERTICAL))
+
         }
 
         presenter = WeatherListPresenter(this, weatherRepo)
@@ -55,7 +58,7 @@ class WeatherListActivity : AppCompatActivity(), WeatherListView, WeatherListene
     }*/
 
 
-    //TODO stagnan disini hehehe
+    //TODO udah mau berhasil tapi hasilnya null
     override fun showData(main: Main) {
         Log.d("show", "masuk gak sih ${main.temp}")
         main.let {
