@@ -1,6 +1,6 @@
 package id.ac.uny.harikeempat.repository
 
-import id.ac.uny.harikeempat.response_model.Response
+import id.ac.uny.harikeempat.response_model.Main
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit
 
 interface MyAppService {
     @GET("weather?q=London,uk&appid=b6907d289e10d714a6e88b30761fae22")
-    fun getWeathers(): Call<Response>
+    fun getWeathers(): Call<Main>
 
     companion object {
         fun create(): MyAppService {
