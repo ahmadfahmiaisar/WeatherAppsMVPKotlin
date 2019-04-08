@@ -44,4 +44,7 @@ dependencies {
     implementation 'com.xwray:groupie-kotlin-android-extensions:2.0.3'
     //http logging interceptor
     implementation 'com.squareup.okhttp3:logging-interceptor:3.8.0'
+
+    //android networking
+    implementation 'com.amitshekhar.android:android-networking:1.0.2'
 }

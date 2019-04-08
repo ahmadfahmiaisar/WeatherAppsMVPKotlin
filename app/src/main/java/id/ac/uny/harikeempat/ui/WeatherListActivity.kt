@@ -12,13 +12,11 @@ import com.xwray.groupie.ViewHolder
 import id.ac.uny.harikeempat.R
 import id.ac.uny.harikeempat.repository.WeatherRepositoryImpl
 import id.ac.uny.harikeempat.response_model.Main
-import id.ac.uny.harikeempat.ui.adapter.WeatherItem
+import id.ac.uny.harikeempat.ui.adapter.WeatherAdapter
 import id.ac.uny.harikeempat.ui.adapter.WeatherListener
 import kotlinx.android.synthetic.main.activity_weather_list.*
-import org.jetbrains.anko.toast
 
 class WeatherListActivity : AppCompatActivity(), WeatherListView, WeatherListener {
-
 
     lateinit var presenter: WeatherListPresenter
     val weatherAdapter = GroupAdapter<ViewHolder>()
@@ -51,19 +49,12 @@ class WeatherListActivity : AppCompatActivity(), WeatherListView, WeatherListene
         rvWeatherList.visibility = VISIBLE
     }
 
-    /*override fun showData(listWeather: List<Response>) {
-        listWeather.map {
-            weatherAdapter.add(WeatherItem(it, this))
-        }
-    }*/
-
-
     //TODO udah mau berhasil tapi hasilnya null
-    override fun showData(main: Main) {
-        Log.d("show", "masuk gak sih ${main.temp}")
-        main.let {
-            weatherAdapter.add(WeatherItem(it, this))
-        }
+    override fun showData(main: Main?) {
+       main.let {
+           Log.d("coba", "coba ")
+           weatherAdapter.add(WeatherAdapter(it, this))
+       }
     }
 
     override fun showError(errorMessage: String) {
@@ -72,7 +63,7 @@ class WeatherListActivity : AppCompatActivity(), WeatherListView, WeatherListene
         tvError.visibility = VISIBLE
     }
 
-    override fun onWeatherClick(weather: Main) {
-        toast("show ${weather.temp}")
+    override fun onWeatherClick(weather: Main?) {
+//        toast("show ${weather.temp}")
     }
 }
